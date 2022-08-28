@@ -17,5 +17,5 @@ cat > /data/web_static/releases/test/index.html <<'EOF'
 EOF
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -hR ubuntu:ubuntu /data/
-sudo sed -i "+server_name_;+a \n\tlocation /hbnb_static {\n\talias /data/web_static/current/;\n\t}' /etc/nginx/sites-available/default
+sudo sed -i '+server_name_;+a \n\tlocation /hbnb_static {\n\talias /data/web_static/current/;\n\t}' /etc/nginx/sites-available/default
 service nginx restart
