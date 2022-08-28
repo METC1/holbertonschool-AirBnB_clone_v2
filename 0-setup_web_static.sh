@@ -9,6 +9,5 @@ mkdir -p /data/web_static/shared/
 echo "Holberton School - test /data/web_static/.../index.html"  > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -hR ubuntu:ubuntu /data/
-sed -i '/server_name_;/a \n\tlocation /hbnb_static {\n\talias /data/web_static/current/;\n\t}' /etc/nginx/sites-available/default
-sed -i '/server_name_;/a \n\tlocation /hbnb_static {\n\talias /data/web_static/current/;\n\t}' /etc/nginx/sites-enabled/default
+sed -i '/server_name _;/a \n\tlocation /hbnb_static {\n\talias /data/web_static/current/;\n\t}' /etc/nginx/sites-available/default
 service nginx restart
