@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Script that distributes an archive based on 1-pack_web_static.py created 
+Script that distributes an archive based on 1-pack_web_static.py created
 to servers usind do_deploy
 """
 
@@ -18,7 +18,7 @@ def do_deploy(archive_path):
 
     filename = archive_path.split("/")[-1]
     filename_noext = filename.split(".")[0]
-    dirname = '/data/web_static/releases/' + filename_noext + '/' 
+    dirname = '/data/web_static/releases/' + filename_noext + '/'
 
     try:
         put(archive_path, '/tmp/')
@@ -27,6 +27,6 @@ def do_deploy(archive_path):
         run('rm /tmp/{}.tgz'.format(filename))
         run('mv {}web_static/* {}'.format(dirname, dirname))
         run('ln -sfn {} /data/web_static/current'.format(dirname))
-        return True)
+        return True
     except Exception:
         return False
