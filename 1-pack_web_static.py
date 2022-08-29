@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """
-Fabric script to generate a .tgz compressed archive with the contents of the web_static folder
-using the function do_pack
+Fabric script to generate a .tgz compressed archive with the contents of
+the web_static folder using the function do_pack
 """
 
 from fabric.api import local
 from datetime import datetime
+
 
 def do_pack():
     """
@@ -13,8 +14,8 @@ def do_pack():
     """
 
     timestamp = datetime.utcnow().strftime("%y%m%d%H%M%S")
-    local ("mkdir -p versions")
-    filename = "versions/web_static_"+ timestamp + ".tgz"
+    local("mkdir -p versions")
+    filename = "versions/web_static_" + timestamp + ".tgz"
 
     try:
         local('tar -cvzf {} web_static'.format(filename))
