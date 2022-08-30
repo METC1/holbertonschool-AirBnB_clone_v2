@@ -7,7 +7,7 @@ to servers usind do_deploy
 from fabric.api import put, run, env
 from os.path import exists
 
-env.hosts = ['3.95.206.242', '54.146.102.0']
+env.hosts = ["3.95.206.242", "54.146.102.0"]
 
 
 def do_deploy(archive_path):
@@ -24,9 +24,9 @@ def do_deploy(archive_path):
         put(archive_path, '/tmp/')
         run('mkdir -p {}'.format(dirname))
         run('tar -xzf /tmp/{} -C {}'.format(filename, dirname))
-        run('rm /tmp/{}.tgz'.format(filename))
-        run('mv {}web_static/* {}'.format(dirname, dirname))
-        run('ln -sfn {} /data/web_static/current'.format(dirname))
+        """run('rm /tmp/{}.tgz'.format(filename))"""
+        """run('mv {}web_static/* {}'.format(dirname, dirname))"""
+        """run('ln -sfn {} /data/web_static/current'.format(dirname))"""
         return True
     except Exception:
         return False
