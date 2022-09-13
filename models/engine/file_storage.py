@@ -21,9 +21,10 @@ class FileStorage:
         if cls is None:
             return FileStorage.__objects
         for key, value in FileStorage.__objects.items():
+            new_key = key.split(".")[1]
             cls_name = key.split(".")[0]
             if cls.__name__ == cls_name:
-                new_dict[key] = value
+                new_dict[new_key] = value
         return new_dict
 
     def delete(self, obj=None):
