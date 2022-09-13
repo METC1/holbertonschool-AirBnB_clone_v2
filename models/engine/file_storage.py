@@ -23,6 +23,7 @@ class FileStorage:
         for key, value in FileStorage.__objects.items():
             new_key = key.split(".")[1]
             cls_name = key.split(".")[0]
+            print(new_key)
             if cls.__name__ == cls_name:
                 new_dict[new_key] = value
         return new_dict
