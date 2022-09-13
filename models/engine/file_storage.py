@@ -25,8 +25,8 @@ class FileStorage:
             """cls_name = key.split(".")[0]"""
             if cls.__name__ in key: 
                 """== cls_name:"""
-                print(key)
-                new_dict[new_key] = value
+                """print(key)"""
+                new_dict[key] = value
         return new_dict
 
     def delete(self, obj=None):
