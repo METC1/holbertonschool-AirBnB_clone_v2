@@ -43,7 +43,7 @@ class FileStorage:
         """Saves storage dictionary to file"""
         with open(FileStorage.__file_path, 'w') as f:
             temp = {}
-            temp.update(self.__objects)
+            temp.update(FileStorage.__objects)
             for key, value in temp.items():
                 temp[key] = value.to_dict()
             json.dump(temp, f)
@@ -57,7 +57,7 @@ class FileStorage:
                   }
         try:
             temp = {}
-            with open(self.__file_path, 'r') as f:
+            with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
                     self.all()[key] = classes[val['__class__']](**val)
