@@ -4,9 +4,7 @@
 """
 from flask import Flask, render_template
 from models import storage
-from models import state
-from operator import getitem
-app =Flask(__nmae__)
+app =Flask(__name__)
 
 
 @app.route('/states_list', strict_slashes=False)
@@ -14,7 +12,7 @@ def list_states():
     """
     List all the states
     """
-    states = storage.all(State).values()
+    states = storage.all("State").values()
     return render_template('7-states_list.html', states=states)
 
 @app.teardown_appcontext
